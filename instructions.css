@@ -1,0 +1,16 @@
+body 
+{
+    min-width: 500px;
+    overflow-x: hidden;
+    font-family: Helvetica, Arial, Sans-Serif;
+}
+
+#double-shot-search-box
+{
+    text-align: center;
+}
+
+#double-shot-search-box img
+{
+    vertical-align: middle;
+}
