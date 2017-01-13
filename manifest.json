@@ -20,7 +20,7 @@
    "description": "Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side.",
    "homepage_url": "https://www.doubleshotsearch.com/",
    "icons": {
-      "129": "DoubleShotSearchLog128.png",
+      "128": "DoubleShotSearchLogo128.png",
       "16": "DoubleShotSearchLogo16.png",
       "32": "DoubleShotSearchLogo32.png",
       "48": "DoubleShotSearchLogo48.png",
@@ -35,6 +35,6 @@
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "web_accessible_resources": [ "search.html" ]
 }
