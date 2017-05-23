@@ -20,7 +20,7 @@ chrome.webRequest.onHeadersReceived.addListener(
 // This event is fired with the user accepts the input in the omnibox.
 chrome.omnibox.onInputEntered.addListener(
 	function(query) {
-		var search_url = chrome.extension.getURL("search.html");
+		var search_url = chrome.runtime.getURL("search.html");
 		search_url = search_url + "?q=" + encodeURIComponent(query);
 		navigate(search_url);
 	}
@@ -39,7 +39,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 
             var url = $.url(details.url);
             var query = url.param("q");
-            var search_url = chrome.extension.getURL("search.html");
+            var search_url = chrome.runtime.getURL("search.html");
             search_url = search_url + "?q=" + encodeURIComponent(query);
             
             return {redirectUrl: search_url};

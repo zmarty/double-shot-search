@@ -32,9 +32,9 @@
    "omnibox": {
       "keyword": "ds"
    },
-   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage" ],
+   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.1.1",
+   "version": "1.2",
    "web_accessible_resources": [ "search.html" ]
 }
