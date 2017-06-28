@@ -13,8 +13,7 @@
          "is_default": true,
          "keyword": "ds",
          "name": "Double Shot Search: Bing and Google together",
-         "search_url": "https://www.doubleshotsearch.com/chrome-extension/search/?q={searchTerms}",
-         "suggest_url": "https://www.doubleshotsearch.com/chrome-extension/suggestions/search?output=chrome&q={searchTerms}"
+         "search_url": "https://www.doubleshotsearch.com/chrome-extension/search/?q={searchTerms}"
       }
    },
    "description": "Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side.",
@@ -35,6 +34,6 @@
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.2",
+   "version": "1.3",
    "web_accessible_resources": [ "search.html" ]
 }

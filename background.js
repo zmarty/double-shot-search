@@ -19,23 +19,25 @@ chrome.webRequest.onHeadersReceived.addListener(
 
 // This event is fired with the user accepts the input in the omnibox.
 chrome.omnibox.onInputEntered.addListener(
-	function(query) {
-		var search_url = chrome.runtime.getURL("search.html");
-		search_url = search_url + "?q=" + encodeURIComponent(query);
-		navigate(search_url);
-	}
+    function(query) {
+        var search_url = chrome.runtime.getURL("search.html");
+        search_url = search_url + "?q=" + encodeURIComponent(query);
+        navigate(search_url);
+    }
 );
 
 function navigate(url) {
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.update(tabs[0].id, {url: url});
-	});
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        console.log("navigated")
+        chrome.tabs.update(tabs[0].id, {url: url});
+    });
 }
 
 chrome.webRequest.onBeforeRequest.addListener(
     function(details)
     { 
-        if (details.url.indexOf("https://www.doubleshotsearch.com/chrome-extension/search/?q=") != -1) {
+        if (details.url.indexOf("https://www.doubleshotsearch.com/chrome-extension/search/?q=") != -1
+            || details.url.indexOf("chrome-extension://" + chrome.runtime.id + "/?q=") != -1) {
 
             var url = $.url(details.url);
             var query = url.param("q");
@@ -45,6 +47,6 @@ chrome.webRequest.onBeforeRequest.addListener(
             return {redirectUrl: search_url};
         }
     },
-    {urls: ["*://www.doubleshotsearch.com/*"]},
+    {urls: ["<all_urls>"]},
     ["blocking"]
 );
