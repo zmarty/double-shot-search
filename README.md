@@ -1,4 +1,4 @@
-# Double Shot Search Chrome Extension: Search Bing and Google together
+# Double Shot Search Chrome Extension: Search two search engines side-by-side
 
 Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side. In other words, this extension enables multi-search across two search engines at the same time by showing the result pages next to each other. This extension works best on high resolution screens.
 
