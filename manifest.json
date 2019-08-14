@@ -9,15 +9,15 @@
    "chrome_settings_overrides": {
       "search_provider": {
          "encoding": "UTF-8",
-         "favicon_url": "https://www.doubleshotsearch.com/images/DoubleShotSearchLogo32.png",
+         "favicon_url": "https://www.doubleshotsearch.download/images/DoubleShotSearchLogo32.png",
          "is_default": true,
          "keyword": "ds",
          "name": "Double Shot Search: Query side-by-side",
-         "search_url": "https://www.doubleshotsearch.com/chrome-extension/search/?q={searchTerms}"
+         "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}"
       }
    },
    "description": "Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side.",
-   "homepage_url": "https://www.doubleshotsearch.com/",
+   "homepage_url": "https://www.doubleshotsearch.download/",
    "icons": {
       "128": "DoubleShotSearchLogo128.png",
       "16": "DoubleShotSearchLogo16.png",
@@ -34,6 +34,6 @@
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.5",
+   "version": "1.6",
    "web_accessible_resources": [ "search.html" ]
 }

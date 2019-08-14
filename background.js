@@ -35,7 +35,7 @@ function navigate(url) {
 chrome.webRequest.onBeforeRequest.addListener(
     function(details)
     { 
-        if (details.url.indexOf("https://www.doubleshotsearch.com/chrome-extension/search/?q=") != -1
+        if (details.url.indexOf("https://www.doubleshotsearch.download/chrome-extension/search/?q=") != -1
             || details.url.indexOf("chrome-extension://" + chrome.runtime.id + "/?q=") != -1) {
 
             var url = $.url(details.url);
