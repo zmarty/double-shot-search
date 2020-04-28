@@ -34,6 +34,6 @@
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.8",
+   "version": "1.9",
    "web_accessible_resources": [ "search.html" ]
 }
