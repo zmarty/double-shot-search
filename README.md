@@ -4,7 +4,7 @@ Allows searching in both Bing and Google at the same time by showing the results
 
 You can [download it from the Chrome Web Store](https://chrome.google.com/webstore/detail/double-shot-search-bing-a/kddlkbpbepnaepdleclhdnfdpdogdhop?hl=en) to install it in Chrome.
 
-![Double Show Search Chrome Extension Example Screenshot](/example-screenshot.png?raw=true "Double Show Search Chrome Extension Example Screenshot")
+![Double Show Search Chrome Extension Example Screenshot](/example-screenshot-chrome.png?raw=true "Double Show Search Chrome Extension Example Screenshot")
 
 Technical details: 
 * The extension sets itself as the default search engine.
