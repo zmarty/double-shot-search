@@ -31,6 +31,11 @@
    "omnibox": {
       "keyword": "ds"
    },
+   "content_scripts": [{
+      "matches": ["https://www.google.com/*", "https://www.bing.com/*"],
+      "all_frames": true,
+      "js": ["content.js"]
+    }],
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
