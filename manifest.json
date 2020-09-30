@@ -12,7 +12,7 @@
          "favicon_url": "https://www.doubleshotsearch.download/images/DoubleShotSearchLogo32.png",
          "is_default": true,
          "keyword": "ds",
-         "name": "Double Shot Search: Query side-by-side",
+         "name": "Double Shot Search: Query Bing and Google side-by-side",
          "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}"
       }
    },
@@ -36,9 +36,9 @@
       "all_frames": true,
       "js": ["content.js"]
     }],
-   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "contextMenus", "storage", "activeTab" ],
+   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.9",
+   "version": "2.0",
    "web_accessible_resources": [ "search.html" ]
 }
