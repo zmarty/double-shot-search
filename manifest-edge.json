@@ -11,9 +11,10 @@
          "encoding": "UTF-8",
          "favicon_url": "https://www.doubleshotsearch.download/images/DoubleShotSearchLogo32.png",
          "is_default": true,
-         "keyword": "ds",
+         "keyword": "doubleshot",
          "name": "Double Shot Search: Query Bing and Google side-by-side",
-         "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}"
+         "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}",
+         "suggest_url": "https://api.bing.com/osjson.aspx?query={searchTerms}"
       }
    },
    "description": "Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side.",
@@ -37,6 +38,6 @@
     }],
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
    "short_name": "Double Shot Search",
-   "version": "2.0",
+   "version": "2.2",
    "web_accessible_resources": [ "search.html" ]
 }
