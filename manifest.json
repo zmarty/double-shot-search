@@ -40,6 +40,6 @@
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.2",
+   "version": "2.3",
    "web_accessible_resources": [ "search.html" ]
 }
