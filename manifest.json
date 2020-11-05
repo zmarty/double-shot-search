@@ -13,8 +13,7 @@
          "is_default": true,
          "keyword": "doubleshot",
          "name": "Double Shot Search: Query Bing and Google side-by-side",
-         "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}",
-         "suggest_url": "https://api.bing.com/osjson.aspx?query={searchTerms}"
+         "search_url": "https://www.doubleshotsearch.download/chrome-extension/search/?q={searchTerms}"
       }
    },
    "description": "Allows searching in both Bing and Google at the same time by showing the results from both search engines side by side.",
