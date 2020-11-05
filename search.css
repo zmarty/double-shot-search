@@ -1,25 +1,64 @@
+html {
+    height: 100%;
+}
+
 body 
 {
     margin: 0;
     padding: 0;
+    height: 100%;
+}
+  
+.wrapper {
+    display: flex;
+    height: 100%;
 }
 
-#left
-{
+.shield {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    display: none;
+}
+
+.box {
+    box-sizing: border-box;
+    flex: 1 1 auto;
     height: 100%;
-    width: 50%;
     border: 0;
 }
 
-#right
-{
-    position: absolute;
-    top: 0;
-    left: 50%;
+.one {
+    flex: 2 1 auto;
+}
+
+.two {
+    flex: 1 1 auto;
+}
+
+.handler {
+    width: 10px;
+    background: #f1f1f1;
+    padding: 0;
+    cursor: ew-resize;
+    flex: 0 0 auto;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+
+.handler::before {
+    content: '';
+    display: block;
+    width: 2px;
     height: 100%;
-    width: 50%;
-    border: 0;
+    background: #CCC;
+    margin: 0 auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
