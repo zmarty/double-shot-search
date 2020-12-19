@@ -1,4 +1,5 @@
 let height = 0;
+let scroll = 0;
 
 function resize() {
     var handler = document.querySelector('.handler');
@@ -33,14 +34,32 @@ function resize() {
     });
 }
 
+function onscroll(e) {
+    var value = e.target.scrollLeft;
+    document.querySelector("#left").contentWindow.postMessage({type:"Scroll", value: value}, '*');
+    document.querySelector("#right").contentWindow.postMessage({type:"Scroll", value: value}, '*');
+}
+
+function onresize() {
+    scroll = 0;
+    height = 0;
+    document.querySelector("#left").contentWindow.postMessage({type:"Resize"}, '*');
+    document.querySelector("#right").contentWindow.postMessage({type:"Resize"}, '*');
+}
+
 function onload(e) { 
     let iframe = e.target;
-    iframe.contentWindow.postMessage("Load", '*');
+    iframe.contentWindow.postMessage({type: "Load"}, '*');
     window.addEventListener("message", function(event) {
         if (event.data) {
-            if (event.data.height) {
+            if (event.data.height && event.data.scroll) {
+                var scrollbar = document.querySelector(".scroll");
                 height = Math.max(event.data.height, height);
+                scroll = Math.max(event.data.scroll, scroll);
                 document.body.style.height = height + "px";
+                if (scrollbar) {
+                    scrollbar.style.width = scroll + "%";
+                }
             } else if (event.data.query) {
                 location.href = "/search.html?q=" + encodeURIComponent(event.data.query);
             }
@@ -66,6 +85,8 @@ $( document ).ready(function() {
         $("#right").load(onload);
         $("#left").attr("src", left + encodeURIComponent(query));
         $("#right").attr("src", right + encodeURIComponent(query));
+        $("#scrollbar").scroll(onscroll);
+        $(window).resize(onresize);
         document.title = query.replace(/</g, "&lt;").replace(/>/g, "&gt;") + " - Double Shot Search";
     }
 });
