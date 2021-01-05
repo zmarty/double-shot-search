@@ -7,30 +7,43 @@ if (location && location.href.indexOf("ds=1") >= 0) {
         head.appendChild(base);
     }
 
-    function scroll() {
-        // Minimize left gutter if visible area is less than the width of the page
-        if (document.documentElement.scrollWidth - document.documentElement.clientWidth > 140) {
-            document.documentElement.scrollTo({top: 0, left: 140, behavior: 'smooth'});
-        }
-    }
-
     function receiver(event) {
-        if (event.origin.indexOf('-extension://') > 0) {
-            switch (event.data) {
+        if (event.origin.indexOf('-extension://') > 0 && event.data && event.data.type) {
+            switch (event.data.type) {
                 case "Load":
-                    event.source.postMessage({ height: document.documentElement.scrollHeight}, event.origin);
-                    scroll();
+                    event.source.postMessage({
+                        scroll:  (document.documentElement.scrollWidth * 100) /  document.documentElement.clientWidth,
+                        height: document.documentElement.scrollHeight
+                    }, event.origin);
                     const observer = new MutationObserver(function() {
                         event.source.postMessage({ query: document.title.split(" - ")[0]}, event.origin);
                     });
                     observer.observe(document.getElementsByTagName("title")[0], { attributes: true, childList: true, subtree: true });
                     break;
+                case "Resize":
+                    event.source.postMessage({
+                        scroll:  (document.documentElement.scrollWidth * 100) /  document.documentElement.clientWidth,
+                        height: document.documentElement.scrollHeight
+                    }, event.origin);
+                    break;
+                case "Scroll":
+                    document.documentElement.scrollLeft = event.data.value;
+                    break;
+
             }
             
         }
     }
 
+    function load() {
+        var links = document.querySelectorAll("a");
+        for (var i = 0; i < links.length; i++) {
+            links[i].setAttribute("target", "_blank");
+            links[i].setAttribute("rel", "opener");
+        }
+    }
+
     window.addEventListener("message", receiver, false);
-    window.addEventListener("resize", scroll, false);
+    window.addEventListener("load", load, false);
     
 }
