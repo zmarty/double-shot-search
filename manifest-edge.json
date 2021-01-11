@@ -38,6 +38,6 @@
     }],
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
    "short_name": "Double Shot Search",
-   "version": "2.3",
+   "version": "2.4",
    "web_accessible_resources": [ "search.html" ]
 }
