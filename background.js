@@ -10,8 +10,9 @@ chrome.webRequest.onHeadersReceived.addListener(
             }
         }
     }, {
-        urls: ["<all_urls>"]
-    }, ["blocking", "responseHeaders"]
+        urls: ["*://www.bing.com/*", "*://www.google.com/*", "*://www.google.co.in/*"],
+        types: [ 'sub_frame' ]
+    }, ["blocking", "responseHeaders", "extraHeaders"]
 );
 
 // !! https://developer.chrome.com/extensions/settings_override
