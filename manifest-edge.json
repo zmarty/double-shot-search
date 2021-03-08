@@ -32,12 +32,12 @@
       "keyword": "ds"
    },
    "content_scripts": [{
-      "matches": ["https://www.google.com/*", "https://www.bing.com/*"],
+      "matches": ["https://www.google.co.in/*", "https://www.google.com/*", "https://www.bing.com/*"],
       "all_frames": true,
       "js": ["content.js"]
     }],
    "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
    "short_name": "Double Shot Search",
-   "version": "2.4",
+   "version": "2.5",
    "web_accessible_resources": [ "search.html" ]
 }
