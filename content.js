@@ -15,10 +15,6 @@ if (location && location.href.indexOf("ds=1") >= 0) {
                         scroll:  (document.documentElement.scrollWidth * 100) /  document.documentElement.clientWidth,
                         height: document.documentElement.scrollHeight
                     }, event.origin);
-                    const observer = new MutationObserver(function() {
-                        event.source.postMessage({ query: document.title.split(" - ")[0]}, event.origin);
-                    });
-                    observer.observe(document.getElementsByTagName("title")[0], { attributes: true, childList: true, subtree: true });
                     break;
                 case "Resize":
                     event.source.postMessage({
