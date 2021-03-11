@@ -60,6 +60,9 @@ function onload(e) {
                 if (scrollbar) {
                     scrollbar.style.width = scroll + "%";
                 }
+            } else if (event.data.url) {
+                var url = $.url(event.data.url);
+                location.href = "/search.html?q=" + encodeURIComponent(url.param("q"));
             }
         }
     }, false);
