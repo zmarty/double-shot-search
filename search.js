@@ -60,6 +60,15 @@ function onload(e) {
                 if (scrollbar) {
                     scrollbar.style.width = scroll + "%";
                 }
+            } else if (event.data.url) {
+                var url = $.url(event.data.url);
+                // Do not attempt a page refresh if current query is same as the previous query
+                // This will help avoid unexpected circumstances where Bing or Google may push new state to only update location hash
+                var prevQuery = $.url().param("q");
+                var nextQuery = url.param("q");
+                if (nextQuery !== prevQuery) {
+                    location.href = "/search.html?q=" + encodeURIComponent(nextQuery);
+                }
             }
         }
     }, false);

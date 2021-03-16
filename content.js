@@ -15,6 +15,25 @@ if (location && location.href.indexOf("ds=1") >= 0) {
                         scroll:  (document.documentElement.scrollWidth * 100) /  document.documentElement.clientWidth,
                         height: document.documentElement.scrollHeight
                     }, event.origin);
+                    
+                    // Listen to Ajax navigation
+                    window.addEventListener("message", function(e) {
+                        if (e.source === window && e.data.api) {
+                            var d = e.data;
+                            switch (d.api) {
+                              case "pushState":
+                                event.source.postMessage({ url: d.url }, event.origin);
+                                break;
+                            }
+                        }
+                    });
+            
+                    // Execute script in webpage context
+                    var script = document.createElement("script");
+                    var code = proxy();
+                    script.innerText = code;
+                    document.body.appendChild(script);
+
                     break;
                 case "Resize":
                     event.source.postMessage({
@@ -29,6 +48,18 @@ if (location && location.href.indexOf("ds=1") >= 0) {
             }
             
         }
+    }
+
+    // Let the code within webpage context to communicate back to the extension
+    function proxy() {
+        var closure = () => {
+            var pushState = history.pushState;
+            history.pushState = function(state, title, url) {
+                pushState.apply(this, arguments);
+                window.postMessage({ api: "pushState", url: location.href }, "*");
+            };
+        };
+        return `(${closure.toString()})();`;
     }
 
     function load() {
