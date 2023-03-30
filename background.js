@@ -56,6 +56,10 @@ chrome.omnibox.onInputEntered.addListener(function(query) {
                                                        'document.body.appendChild(iframe);'
             });
         });
+    } else {
+        var search_url = chrome.runtime.getURL("search.html");
+        search_url = search_url + "?q=" + encodeURIComponent(query);
+        navigate(search_url);
     }
 });
 
