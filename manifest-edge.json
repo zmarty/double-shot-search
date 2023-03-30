@@ -55,7 +55,7 @@
       "activeTab"
    ],
    "short_name": "Double Shot Search",
-   "version": "3.0",
+   "version": "3.0.1",
    "web_accessible_resources": [
       "search.html"
    ]
