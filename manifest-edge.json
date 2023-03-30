@@ -60,7 +60,8 @@
       "webRequest",
       "webRequestBlocking",
       "<all_urls>",
-      "activeTab"
+      "activeTab",
+      "tabs"
    ],
    "short_name": "Double Shot Search",
    "version": "3.0.1",
