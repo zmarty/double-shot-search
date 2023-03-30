@@ -69,6 +69,9 @@ function navigate(url) {
     });
 }
 
+const shopPrefix = "shop";
+const chatPrefix = "chat";
+
 chrome.webRequest.onBeforeRequest.addListener(
     function (details) {
         if (details.url.indexOf("https://www.doubleshotsearch.download/chrome-extension/search/?q=") !== -1
@@ -77,6 +80,22 @@ chrome.webRequest.onBeforeRequest.addListener(
             var query = url.param("q");
             var search_url = chrome.runtime.getURL("search.html");
             search_url = search_url + "?q=" + encodeURIComponent(query);
+
+            let queryWords = query.split(" ");
+            if (queryWords.length > 1) {
+                switch (queryWords[0].toLowerCase()) {
+                    case shopPrefix:
+                        queryWords[0] = shopPrefix;
+                        query = queryWords.join(" ");
+                        break;
+                    case chatPrefix:
+                        queryWords[0] = chatPrefix;
+                        query = queryWords.join(" ");
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             if (query.startsWith("chat ")) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
