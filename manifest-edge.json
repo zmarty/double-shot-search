@@ -1,6 +1,10 @@
 {
    "background": {
-      "scripts": [ "jquery-1.11.1.min.js", "purl.js", "background.js" ]
+      "scripts": [
+         "jquery-1.11.1.min.js",
+         "purl.js",
+         "background.js"
+      ]
    },
    "browser_action": {
       "default_icon": "DoubleShotSearchLogo32.png",
@@ -31,13 +35,28 @@
    "omnibox": {
       "keyword": "ds"
    },
-   "content_scripts": [{
-      "matches": ["https://www.google.co.in/*", "https://www.google.com/*", "https://www.bing.com/*"],
-      "all_frames": true,
-      "js": ["content.js"]
-    }],
-   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab" ],
+   "content_scripts": [
+      {
+         "matches": [
+            "https://www.google.co.in/*",
+            "https://www.google.com/*",
+            "https://www.bing.com/*"
+         ],
+         "all_frames": true,
+         "js": [
+            "content.js"
+         ]
+      }
+   ],
+   "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>",
+      "activeTab"
+   ],
    "short_name": "Double Shot Search",
-   "version": "2.6",
-   "web_accessible_resources": [ "search.html" ]
+   "version": "3.0",
+   "web_accessible_resources": [
+      "search.html"
+   ]
 }

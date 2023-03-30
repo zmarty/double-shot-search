@@ -90,7 +90,10 @@ chrome.webRequest.onBeforeRequest.addListener(
                     });
                 });
             } else {
-              return { redirectUrl: search_url };
+                // Update to support the Edge version: 111.0.1661.54
+                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                    chrome.tabs.update(tabs[0].id, { url: search_url });
+                });
             }
         }
     },

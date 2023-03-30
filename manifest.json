@@ -1,6 +1,10 @@
 {
    "background": {
-      "scripts": [ "jquery-1.11.1.min.js", "purl.js", "background.js" ]
+      "scripts": [
+         "jquery-1.11.1.min.js",
+         "purl.js",
+         "background.js"
+      ]
    },
    "browser_action": {
       "default_icon": "DoubleShotSearchLogo32.png",
@@ -31,18 +35,38 @@
    "omnibox": {
       "keyword": "ds"
    },
-   "content_scripts": [{
-      "matches": ["https://www.google.co.in/*", "https://www.google.com/*", "https://www.bing.com/*"],
-      "all_frames": true,
-      "js": ["content.js"]
-    },
-    {
-      "matches": ["https://bard.google.com/*"],
-      "js": ["bard.js"]
-    }],
-   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "activeTab", "tabs" ],
+   "content_scripts": [
+      {
+         "matches": [
+            "https://www.google.co.in/*",
+            "https://www.google.com/*",
+            "https://www.bing.com/*"
+         ],
+         "all_frames": true,
+         "js": [
+            "content.js"
+         ]
+      },
+      {
+         "matches": [
+            "https://bard.google.com/*"
+         ],
+         "js": [
+            "bard.js"
+         ]
+      }
+   ],
+   "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>",
+      "activeTab",
+      "tabs"
+   ],
    "short_name": "Double Shot Search",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.6",
-   "web_accessible_resources": [ "search.html" ]
+   "version": "3.0",
+   "web_accessible_resources": [
+      "search.html"
+   ]
 }
