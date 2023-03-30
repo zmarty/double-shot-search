@@ -46,6 +46,14 @@
          "js": [
             "content.js"
          ]
+      },
+      {
+         "matches": [
+            "https://bard.google.com/*"
+         ],
+         "js": [
+            "bard.js"
+         ]
       }
    ],
    "permissions": [
