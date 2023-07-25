@@ -33,6 +33,17 @@ function changeRequestHeaders(details) {
         ) {
             details.requestHeaders[i].value = details.requestHeaders[i].value + ' Edg/111.0.1661.44';
         }
+
+        if (
+            details.requestHeaders[i].name.toLowerCase() === 'sec-ch-ua'
+            && details.url.indexOf('Google Chrome') <= -1
+        ) {
+            let value = details.requestHeaders[i].value;
+            let valueList = value.split(', ');
+            valueList[valueList.length - 1] = '"Microsoft Edge";v="114"'
+            value = valueList.join(', ')
+            details.requestHeaders[i].value = value;
+        }
     }
       
     return {
