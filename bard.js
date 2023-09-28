@@ -5,7 +5,7 @@ var header = document.querySelector('header')
 header.style = "width:50%";
 
 var iframe = document.createElement("iframe");
-iframe.style = "width:50%;height:100%;position:absolute;top:0;right:0;z-index:99999";
+iframe.style = "width:50%;height:100%;position:absolute;top:0;right:0";
 
 document.body.appendChild(iframe); 
 
