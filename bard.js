@@ -25,17 +25,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       }
     };
 
-    waitForElement('textarea[placeholder="Enter a prompt here"]', (textarea) => {
-      textarea.value = chatText;
-      
-      // Trigger the input event
-      const inputEvent = new Event('input', { bubbles: true, cancelable: true });
-      textarea.dispatchEvent(inputEvent);
-
-      const button = document.querySelector('button[aria-label="Send message"]');
-      if (button && !button.disabled) {
-        button.click();
-      }
+    waitForElement('div.ql-editor.textarea > p', (textarea) => {
+      textarea.append(chatText)
+      waitForElement("button[aria-label='Send message']", (button) => {
+        // we need setTimeout because the button got rendered before textarea.
+        setTimeout(() => {
+          button.click();
+        }, 10);
+      });
     });
 
     var searchUrl = `https://www.bing.com/search?q=${chatText}&showconv=1&sendquery=1&FORM=hpcodx`;
